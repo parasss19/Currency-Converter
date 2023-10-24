@@ -10,10 +10,10 @@ function App() {
   const [currencyTo, setCurrencyTo] = useState("inr")
   const [convertedAmount, setConvertedAmount] = useState("")
 
-  //use our custom hook UseCurrencyInfo and currencyInfo contain the data return by our custom hook
+  //use our custom hook (UseCurrencyInfo )and currencyInfo contain the data return by our custom hook
   const currencyInfo = UseCurrencyInfo(currencyFrom)    
 
-  //now the fetched object keys are currency type (like usd,inr etc) which we want to show to users ... so to get all the keys we use Object.keys()
+  //now the fetched object keys are currencytype (like usd,inr etc) which we want to show to users ... so to get all the keys we use Object.keys()
   const options = Object.keys(currencyInfo)
 
   //swap button functionality
@@ -37,17 +37,17 @@ function App() {
             <form onSubmit={(e) => { 
               e.preventDefault()
               convert()
-            }  }  >
+            }} >
 
             {/* First input */}
               <div className="w-full mb-1">
                   <InputBox 
                   label="From" 
                   amount={amount}
-                  currencyOptions={options}
-                  onCurrencyChange={(currency) => setCurrencyFrom(currency)}
                   onAmountChange={(amount) => setAmount(amount)}
+                  currencyOptions={options}
                   selectCurrency={currencyFrom}
+                  onCurrencyChange={(currency) => setCurrencyFrom(currency)}
                   />
               </div>
 
@@ -69,8 +69,8 @@ function App() {
                     amount={convertedAmount}
                     // onAmountChange={(amount) => setAmount(amount)}
                     currencyOptions={options}
-                    onCurrencyChange={(currency)=> setCurrencyTo(currency)}
                     selectCurrency={currencyTo}
+                    onCurrencyChange={(currency)=> setCurrencyTo(currency)}
                      />  
               </div>
 

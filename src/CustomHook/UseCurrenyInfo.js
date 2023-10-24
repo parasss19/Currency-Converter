@@ -10,7 +10,7 @@ function UseCurrencyInfo(currency){
     useEffect (() => {
         fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
         .then((res) => res.json())
-        .then((res)=> setData(res[currency]))           //jo url hai usme ${currency} h so jo bhi currency hum search krenge (inr/usd) vo dynamically vahi fetch krdega ...so hum we use square bracket to get all currency from url using res[currency]
+        .then((res)=> setData(res[currency]))           //jo url hai usme ${currency} h so jo bhi currency hum search krenge (inr/usd) vo dynamically vahi fetch krdega ...so we use square bracket to get all currency from url using res[currency]
     }, [currency])
 
     // console.log(data);  //contain all currency

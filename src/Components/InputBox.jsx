@@ -5,8 +5,8 @@ function InputBox({
     label,                      //used to define label either "from" or "to"
     amount,                     //used to get amount from the user
     onAmountChange,             //update state when amount is changed (jab amount change hoga toh humko state update krni hogi jo humne app.jsx m banai h )
-    selectCurrency = "usd" ,    //by default usd and user select currency type
     onCurrencyChange,           //same for onCurrencyChange 
+    selectCurrency = "usd",     //by default usd and user select currency type
     currencyOptions = [],       //it is used to store diff types of curr we fetch and by default for saftey we pass blank array so that our app not crash
        
 }) 
@@ -45,10 +45,13 @@ function InputBox({
                 
                 {/* we use map to get all the currency inside  currencyOptions array*/}
                 {currencyOptions.map((currency)=> (
-                <option key={currency} value={currency} >
-                  {currency}
+                <option
+                 key={currency} 
+                 value={currency} >
+                 {currency}
                 </option>
                 ))}
+
                </select>
 
             </div>
