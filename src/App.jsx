@@ -4,13 +4,13 @@ import InputBox from './Components/InputBox'
 import UseCurrencyInfo from './CustomHook/UseCurrenyInfo'
 import bgImage from './assets/bg1.jpg'
 
-function App() {
+function App() {  
   const [amount, setAmount] = useState("")
   const [currencyFrom, setCurrencyFrom] = useState("usd")
   const [currencyTo, setCurrencyTo] = useState("inr")
   const [convertedAmount, setConvertedAmount] = useState("")
 
-  //use our custom hook (UseCurrencyInfo )and currencyInfo contain the data return by our custom hook
+  //use our custom hook (UseCurrencyInfo ) and "currencyInfo" contain the data return by our custom hook
   const currencyInfo = UseCurrencyInfo(currencyFrom)    
 
   //now the fetched object keys are currencytype (like usd,inr etc) which we want to show to users ... so to get all the keys we use Object.keys()
@@ -34,7 +34,7 @@ function App() {
     <div className="w-full">
 
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
-            <form onSubmit={(e) => { 
+            <form onSubmit = {(e) => { 
               e.preventDefault()
               convert()
             }} >
@@ -54,8 +54,8 @@ function App() {
             {/* Swap button */}
               <div className="relative w-full h-0.5">
                     <button
-                        type="button"
                         className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5" 
+                        type="button"
                         onClick={swap}
                     >
                        swap
@@ -67,7 +67,7 @@ function App() {
                     <InputBox 
                     label="To"
                     amount={convertedAmount}
-                    // onAmountChange={(amount) => setAmount(amount)}
+                    onAmountChange={(amount) => setConvertedAmount(amount)}
                     currencyOptions={options}
                     selectCurrency={currencyTo}
                     onCurrencyChange={(currency)=> setCurrencyTo(currency)}
@@ -75,8 +75,10 @@ function App() {
               </div>
 
             {/* Convert Button */}
-              <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
-                        Convert {currencyFrom.toUpperCase()} to {currencyTo.toUpperCase()}
+              <button 
+              type="submit" 
+              className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+              Convert {currencyFrom.toUpperCase()} to {currencyTo.toUpperCase()}
               </button>
             </form>
 
