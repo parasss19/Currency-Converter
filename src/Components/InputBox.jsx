@@ -45,10 +45,11 @@ export default function InputBox({
                 
                 {/* we use map to get all the currency inside  currencyOptions array*/}
                 {
-                currencyOptions.map((currency)=> (
-                <option key={currency} value={currency} >
-                 {currency}
-                </option>
+                currencyOptions.map((e)=> (
+                   <option key={e} value={e}  >
+                      {e}
+                      {console.log(e)}  
+                   </option>
                 ))
                 }
 

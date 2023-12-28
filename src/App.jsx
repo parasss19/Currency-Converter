@@ -31,24 +31,27 @@ function App() {
 
   return (
     <div className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"  style={{backgroundImage:`url(${bgImage})`, backgroundSize:'cover'}}>
-    <div className="w-full">
+    
+     <div className="w-full">
 
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
-            <form onSubmit = {(e) => { 
-              e.preventDefault()
-              convert()
-            }} >
+            <form 
+              onSubmit = {(e) => { 
+                e.preventDefault()
+                convert()
+                }} 
+            >
 
-            {/* First input */}
+            {/* First input(From) */}
               <div className="w-full mb-1">
-                  <InputBox 
+                <InputBox 
                   label="From" 
                   amount={amount}
                   onAmountChange={(amount) => setAmount(amount)}
                   currencyOptions={options}
                   selectCurrency={currencyFrom}
                   onCurrencyChange={(currency) => setCurrencyFrom(currency)}
-                  />
+                />
               </div>
 
             {/* Swap button */}
@@ -62,7 +65,7 @@ function App() {
                     </button>
               </div>
             
-            {/* Second input */}
+            {/* Second input(to) */}
               <div className="w-full mt-1 mb-4">
                     <InputBox 
                     label="To"
